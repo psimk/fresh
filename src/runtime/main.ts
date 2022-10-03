@@ -6,8 +6,9 @@ function createRootFragment(
   replaceNode: Node | Node[],
 ) {
   replaceNode = ([] as Node[]).concat(replaceNode);
-  const s = replaceNode[replaceNode.length - 1].nextSibling;
   function insert(c: Node, r: Node) {
+    // @ts-ignore this is **temporarily** fine
+    const s = replaceNode[replaceNode.length - 1].nextSibling;
     parent.insertBefore(c, r || s);
   }
   // @ts-ignore this is fine
